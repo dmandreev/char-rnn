@@ -2,6 +2,7 @@
 -- Modified from https://github.com/oxford-cs-ml-2015/practical6
 -- the modification included support for train/val/test splits
 
+local path = require 'pl.path'  
 local CharSplitLMMinibatchLoader = {}
 CharSplitLMMinibatchLoader.__index = CharSplitLMMinibatchLoader
 
@@ -11,6 +12,7 @@ function CharSplitLMMinibatchLoader.create(data_dir, batch_size, seq_length, spl
     local self = {}
     setmetatable(self, CharSplitLMMinibatchLoader)
 
+    print (data_dir)
     local input_file = path.join(data_dir, 'input.txt')
     local vocab_file = path.join(data_dir, 'vocab.t7')
     local tensor_file = path.join(data_dir, 'data.t7')
